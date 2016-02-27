@@ -42,29 +42,40 @@
     img.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:img];
     
+    [img.layer addAnimation:[self keyAnimation] forKey:kKeyAnimation];
+    img.keyAnimation = (CAKeyframeAnimation *)[img.layer animationForKey:kKeyAnimation];
+}
+
+- (CAAnimation *)keyAnimation
+{
     // core animation
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     
-    CGMutablePathRef aPath=CGPathCreateMutable();
-    //动画起始点
-    CGPathMoveToPoint(aPath, nil, self.startPoint.x, self.startPoint.y);
-
-//    CGPathAddLineToPoint(aPath, NULL, ZGSCREEN_WIDTH - 40 - 40, 0);
-    
-    CGPathAddQuadCurveToPoint(aPath, NULL, self.startPoint.x - 35, self.startPoint.y - 50, self.startPoint.x , self.startPoint.y - 200);
-    
-    CGPathAddQuadCurveToPoint(aPath, NULL, ZGSCREEN_WIDTH, self.startPoint.y - 200 - 80, self.startPoint.x, 0);
-    
-    keyAnimation.path=aPath;
+    keyAnimation.path=[self pathWithStartPoint:self.startPoint];
     keyAnimation.duration=5;
     //设置为渐出
-//    keyAnimation.timingFunction=[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    //    keyAnimation.timingFunction=[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     //自动旋转方向
     keyAnimation.rotationMode=@"auto";
     keyAnimation.autoreverses = NO;
     keyAnimation.delegate = self;
-    [img.layer addAnimation:keyAnimation forKey:kKeyAnimation];
-    img.keyAnimation = (CAKeyframeAnimation *)[img.layer animationForKey:kKeyAnimation];
+    
+    return keyAnimation;
+}
+
+- (CGMutablePathRef)pathWithStartPoint:(CGPoint)startPoint
+{
+    CGMutablePathRef path=CGPathCreateMutable();
+    //动画起始点
+    CGPathMoveToPoint(path, nil, startPoint.x, startPoint.y);
+
+    //    CGPathAddLineToPoint(aPath, NULL, ZGSCREEN_WIDTH - 40 - 40, 0);
+    
+    CGPathAddQuadCurveToPoint(path, NULL, self.startPoint.x - 35, self.startPoint.y - 50, self.startPoint.x , self.startPoint.y - 200);
+    
+    CGPathAddQuadCurveToPoint(path, NULL, ZGSCREEN_WIDTH, self.startPoint.y - 200 - 80, self.startPoint.x, 0);
+    
+    return path;
 }
 
 
