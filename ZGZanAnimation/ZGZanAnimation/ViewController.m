@@ -65,17 +65,51 @@
 
 - (CGMutablePathRef)pathWithStartPoint:(CGPoint)startPoint
 {
-    CGMutablePathRef path=CGPathCreateMutable();
+    NSMutableArray *paths = [NSMutableArray array];
+    
+    CGMutablePathRef path1=CGPathCreateMutable();
     //动画起始点
-    CGPathMoveToPoint(path, nil, startPoint.x, startPoint.y);
+    CGPathMoveToPoint(path1, nil, startPoint.x, startPoint.y);
 
     //    CGPathAddLineToPoint(aPath, NULL, ZGSCREEN_WIDTH - 40 - 40, 0);
     
-    CGPathAddQuadCurveToPoint(path, NULL, self.startPoint.x - 35, self.startPoint.y - 50, self.startPoint.x , self.startPoint.y - 200);
+    CGPathAddQuadCurveToPoint(path1, NULL, self.startPoint.x - 35, self.startPoint.y - 50, self.startPoint.x , self.startPoint.y - 200);
     
-    CGPathAddQuadCurveToPoint(path, NULL, ZGSCREEN_WIDTH, self.startPoint.y - 200 - 80, self.startPoint.x, 0);
+    CGPathAddQuadCurveToPoint(path1, NULL, ZGSCREEN_WIDTH, self.startPoint.y - 200 - 80, self.startPoint.x, 0);
     
-    return path;
+    CGMutablePathRef path2=CGPathCreateMutable();
+    //动画起始点
+    CGPathMoveToPoint(path2, nil, startPoint.x, startPoint.y);
+    
+    CGPathAddQuadCurveToPoint(path2, NULL, ZGSCREEN_WIDTH, self.startPoint.y - 50, self.startPoint.x , self.startPoint.y - 200);
+    
+    CGPathAddQuadCurveToPoint(path2, NULL, self.startPoint.x - 35, self.startPoint.y - 200 - 80, self.startPoint.x, 0);
+    
+    
+    CGMutablePathRef path3=CGPathCreateMutable();
+    //动画起始点
+    CGPathMoveToPoint(path3, nil, startPoint.x, startPoint.y);
+    
+    CGPathAddLineToPoint(path3, NULL, self.startPoint.x, self.startPoint.y - 350);
+    
+    CGPathAddQuadCurveToPoint(path3, NULL, ZGSCREEN_WIDTH, self.startPoint.y - 350 - 80, self.startPoint.x, 0);
+    
+    
+    CGMutablePathRef path4=CGPathCreateMutable();
+    //动画起始点
+    CGPathMoveToPoint(path4, nil, startPoint.x, startPoint.y);
+    
+    CGPathAddLineToPoint(path4, NULL, self.startPoint.x, self.startPoint.y - 350);
+    
+    CGPathAddQuadCurveToPoint(path4, NULL, self.startPoint.x - 35, self.startPoint.y - 250 - 80, self.startPoint.x, 0);
+    
+    
+    [paths addObject:(__bridge id _Nonnull)(path1)];
+    [paths addObject:(__bridge id _Nonnull)(path2)];
+    [paths addObject:(__bridge id _Nonnull)(path3)];
+    [paths addObject:(__bridge id _Nonnull)(path4)];
+    
+    return (__bridge CGMutablePathRef)paths[arc4random_uniform(4)];
 }
 
 
