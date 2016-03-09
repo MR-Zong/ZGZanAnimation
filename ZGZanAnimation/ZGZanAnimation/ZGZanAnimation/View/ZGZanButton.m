@@ -91,6 +91,7 @@
     animationGroup.duration = 5.0f;
     [animationGroup setAnimations:[NSArray arrayWithObjects:opacityAnimation, scaleAnimation, [self keyAnimation],nil]];
     animationGroup.delegate = self;
+    
     // imgView添加动画组
     [imgView.layer addAnimation:animationGroup forKey:kAnimationGroup];
     imgView.animationGroup = (CAKeyframeAnimation *)[imgView.layer animationForKey:kAnimationGroup];
