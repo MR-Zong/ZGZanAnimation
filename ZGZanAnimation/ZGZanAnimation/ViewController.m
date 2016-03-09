@@ -25,14 +25,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.startPoint = CGPointMake(ZGSCREEN_WIDTH - 40 - 40,  ZGSCREEN_HEIGHT - 40 - 40);
-    
     UIButton *zanButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    zanButton.frame = CGRectMake(self.startPoint.x, self.startPoint.y, 40, 33);
+    zanButton.frame = CGRectMake(ZGSCREEN_WIDTH - 40 - 40, ZGSCREEN_HEIGHT - 40 - 40, 40, 33);
 //    zanButton.backgroundColor = [UIColor redColor];
     [zanButton setImage:[UIImage imageNamed:@"redHeart"] forState:UIControlStateNormal];
     [zanButton addTarget:self action:@selector(zanButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:zanButton];
+    
+    // 设置帧动画起始点
+    self.startPoint = zanButton.center;
 }
 
 #pragma mark - zanButtonClick
