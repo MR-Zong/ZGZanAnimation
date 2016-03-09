@@ -28,8 +28,9 @@
     self.startPoint = CGPointMake(ZGSCREEN_WIDTH - 40 - 40,  ZGSCREEN_HEIGHT - 40 - 40);
     
     UIButton *zanButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    zanButton.frame = CGRectMake(self.startPoint.x, self.startPoint.y, 40, 40);
-    zanButton.backgroundColor = [UIColor redColor];
+    zanButton.frame = CGRectMake(self.startPoint.x, self.startPoint.y, 40, 33);
+//    zanButton.backgroundColor = [UIColor redColor];
+    [zanButton setImage:[UIImage imageNamed:@"redHeart"] forState:UIControlStateNormal];
     [zanButton addTarget:self action:@selector(zanButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:zanButton];
 }
@@ -37,13 +38,35 @@
 #pragma mark - zanButtonClick
 - (void)zanButtonClick:(UIButton *)btn
 {
-    ZGImageView *img = [[ZGImageView alloc] init];
-    img.frame = CGRectMake(-10, -64, 40, 40);
-    img.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:img];
+    ZGImageView *imgView = [[ZGImageView alloc] init];
+    imgView.frame = CGRectMake(-10, -64, 40, 40);
+    imgView.image = [UIImage imageNamed:@"redHeart_rotation"];
+    [self.view addSubview:imgView];
+    [self setupAnimationWithImageView:imgView];
+}
+
+- (void)setupAnimationWithImageView:(ZGImageView *)imgView
+{
+    //缩放动画
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.fromValue = [NSNumber numberWithFloat:0.0];
+    scaleAnimation.toValue = [NSNumber numberWithFloat:1.0];
+    scaleAnimation.duration = 0.25f;
+    scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
-    [img.layer addAnimation:[self keyAnimation] forKey:kKeyAnimation];
-    img.keyAnimation = (CAKeyframeAnimation *)[img.layer animationForKey:kKeyAnimation];
+    //透明度变化
+    CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    opacityAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+    opacityAnimation.toValue = [NSNumber numberWithFloat:0.2];
+    
+    // 动画组
+    CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
+    animationGroup.duration = 5.0f;
+    [animationGroup setAnimations:[NSArray arrayWithObjects:opacityAnimation, scaleAnimation, [self keyAnimation],nil]];
+    
+    // imgView添加动画组
+    [imgView.layer addAnimation:animationGroup forKey:kAnimationGroup];
+    imgView.animationGroup = (CAKeyframeAnimation *)[imgView.layer animationForKey:kAnimationGroup];
 }
 
 - (CAAnimation *)keyAnimation
@@ -116,7 +139,7 @@
 #pragma mark AnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kKeyAnimationOverNotification object:anim];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAnimationGroupOverNotification object:anim];
 }
 
 - (void)didReceiveMemoryWarning {

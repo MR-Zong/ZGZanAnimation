@@ -7,8 +7,8 @@
 //
 
 #import "ZGImageView.h"
-NSString *const kKeyAnimationOverNotification = @"KkeyAnimationOverNotification";
-NSString *const kKeyAnimation = @"kKeyAnimation";
+NSString *const kAnimationGroupOverNotification = @"KAnimationGroupOverNotification";
+NSString *const kAnimationGroup = @"kAnimationGroup";
 
 @implementation ZGImageView
 
@@ -28,12 +28,12 @@ NSString *const kKeyAnimation = @"kKeyAnimation";
 
 - (void)registerNotify
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didAnimationOver:) name:kKeyAnimationOverNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didAnimationOver:) name:kAnimationGroupOverNotification object:nil];
 }
 
 - (void)didAnimationOver:(NSNotification *)note
 {
-    if (note.object == self.keyAnimation) {
+    if (note.object == self.animationGroup) {
         [self removeFromSuperview];
     }
 }

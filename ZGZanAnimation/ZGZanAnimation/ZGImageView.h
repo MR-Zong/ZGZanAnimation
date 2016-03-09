@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *const kKeyAnimationOverNotification;
-extern NSString *const kKeyAnimation;
+extern NSString *const kAnimationGroupOverNotification;
+extern NSString *const kAnimationGroup;
 
 @interface ZGImageView : UIImageView
 
-@property (strong, nonatomic) CAKeyframeAnimation *keyAnimation;
+@property (strong, nonatomic) CAKeyframeAnimation *animationGroup;
 
 @end

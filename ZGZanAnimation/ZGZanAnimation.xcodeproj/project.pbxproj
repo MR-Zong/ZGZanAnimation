@@ -15,7 +15,8 @@
 		EF25EA111C813235006A9299 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF25EA0F1C813235006A9299 /* LaunchScreen.storyboard */; };
 		EF25EA1C1C813235006A9299 /* ZGZanAnimationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25EA1B1C813235006A9299 /* ZGZanAnimationTests.m */; };
 		EF25EA271C813235006A9299 /* ZGZanAnimationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25EA261C813235006A9299 /* ZGZanAnimationUITests.m */; };
-		EF25EA361C813B7E006A9299 /* ZGImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25EA351C813B7E006A9299 /* ZGImageView.m */; settings = {ASSET_TAGS = (); }; };
+		EF25EA361C813B7E006A9299 /* ZGImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25EA351C813B7E006A9299 /* ZGImageView.m */; };
+		EFA8F6E21C8FC98700371A5D /* ZGZanAnimation.gif in Resources */ = {isa = PBXBuildFile; fileRef = EFA8F6E11C8FC98700371A5D /* ZGZanAnimation.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		EF25EA281C813235006A9299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF25EA341C813B7E006A9299 /* ZGImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGImageView.h; sourceTree = "<group>"; };
 		EF25EA351C813B7E006A9299 /* ZGImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGImageView.m; sourceTree = "<group>"; };
+		EFA8F6E11C8FC98700371A5D /* ZGZanAnimation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ZGZanAnimation.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		EF25EA011C813235006A9299 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EFA8F6E11C8FC98700371A5D /* ZGZanAnimation.gif */,
 				EF25EA021C813235006A9299 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -248,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA8F6E21C8FC98700371A5D /* ZGZanAnimation.gif in Resources */,
 				EF25EA111C813235006A9299 /* LaunchScreen.storyboard in Resources */,
 				EF25EA0E1C813235006A9299 /* Assets.xcassets in Resources */,
 				EF25EA0C1C813235006A9299 /* Main.storyboard in Resources */,
@@ -504,6 +508,7 @@
 				EF25EA2D1C813235006A9299 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EF25EA2E1C813235006A9299 /* Build configuration list for PBXNativeTarget "ZGZanAnimationTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +517,7 @@
 				EF25EA301C813235006A9299 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EF25EA311C813235006A9299 /* Build configuration list for PBXNativeTarget "ZGZanAnimationUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +526,7 @@
 				EF25EA331C813235006A9299 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
