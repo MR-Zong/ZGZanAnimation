@@ -17,6 +17,7 @@
 		EF25EA271C813235006A9299 /* ZGZanAnimationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25EA261C813235006A9299 /* ZGZanAnimationUITests.m */; };
 		EF25EA361C813B7E006A9299 /* ZGImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25EA351C813B7E006A9299 /* ZGImageView.m */; };
 		EFA8F6E41C8FCBE900371A5D /* ZGZanAnimation.gif in Resources */ = {isa = PBXBuildFile; fileRef = EFA8F6E31C8FCBE900371A5D /* ZGZanAnimation.gif */; };
+		EFA8F6E71C8FF37B00371A5D /* ZGZanButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA8F6E61C8FF37B00371A5D /* ZGZanButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		EF25EA341C813B7E006A9299 /* ZGImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGImageView.h; sourceTree = "<group>"; };
 		EF25EA351C813B7E006A9299 /* ZGImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGImageView.m; sourceTree = "<group>"; };
 		EFA8F6E31C8FCBE900371A5D /* ZGZanAnimation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ZGZanAnimation.gif; sourceTree = "<group>"; };
+		EFA8F6E51C8FF37B00371A5D /* ZGZanButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGZanButton.h; sourceTree = "<group>"; };
+		EFA8F6E61C8FF37B00371A5D /* ZGZanButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGZanButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 			children = (
 				EFA8F6E31C8FCBE900371A5D /* ZGZanAnimation.gif */,
 				EF25EA021C813235006A9299 /* main.m */,
+				EFA8F6E51C8FF37B00371A5D /* ZGZanButton.h */,
+				EFA8F6E61C8FF37B00371A5D /* ZGZanButton.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF25EA091C813235006A9299 /* ViewController.m in Sources */,
+				EFA8F6E71C8FF37B00371A5D /* ZGZanButton.m in Sources */,
 				EF25EA061C813235006A9299 /* AppDelegate.m in Sources */,
 				EF25EA031C813235006A9299 /* main.m in Sources */,
 				EF25EA361C813B7E006A9299 /* ZGImageView.m in Sources */,
