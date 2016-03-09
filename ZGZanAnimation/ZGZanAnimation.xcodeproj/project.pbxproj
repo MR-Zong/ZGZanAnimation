@@ -15,9 +15,9 @@
 		EF25EA111C813235006A9299 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF25EA0F1C813235006A9299 /* LaunchScreen.storyboard */; };
 		EF25EA1C1C813235006A9299 /* ZGZanAnimationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25EA1B1C813235006A9299 /* ZGZanAnimationTests.m */; };
 		EF25EA271C813235006A9299 /* ZGZanAnimationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25EA261C813235006A9299 /* ZGZanAnimationUITests.m */; };
-		EF25EA361C813B7E006A9299 /* ZGImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25EA351C813B7E006A9299 /* ZGImageView.m */; };
 		EFA8F6E41C8FCBE900371A5D /* ZGZanAnimation.gif in Resources */ = {isa = PBXBuildFile; fileRef = EFA8F6E31C8FCBE900371A5D /* ZGZanAnimation.gif */; };
-		EFA8F6E71C8FF37B00371A5D /* ZGZanButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA8F6E61C8FF37B00371A5D /* ZGZanButton.m */; };
+		EFA8F6F01C8FF92600371A5D /* ZGImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA8F6ED1C8FF92600371A5D /* ZGImageView.m */; };
+		EFA8F6F11C8FF92600371A5D /* ZGZanButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA8F6EF1C8FF92600371A5D /* ZGZanButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +54,11 @@
 		EF25EA221C813235006A9299 /* ZGZanAnimationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZGZanAnimationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF25EA261C813235006A9299 /* ZGZanAnimationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZGZanAnimationUITests.m; sourceTree = "<group>"; };
 		EF25EA281C813235006A9299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF25EA341C813B7E006A9299 /* ZGImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGImageView.h; sourceTree = "<group>"; };
-		EF25EA351C813B7E006A9299 /* ZGImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGImageView.m; sourceTree = "<group>"; };
 		EFA8F6E31C8FCBE900371A5D /* ZGZanAnimation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ZGZanAnimation.gif; sourceTree = "<group>"; };
-		EFA8F6E51C8FF37B00371A5D /* ZGZanButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGZanButton.h; sourceTree = "<group>"; };
-		EFA8F6E61C8FF37B00371A5D /* ZGZanButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGZanButton.m; sourceTree = "<group>"; };
+		EFA8F6EC1C8FF92600371A5D /* ZGImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGImageView.h; sourceTree = "<group>"; };
+		EFA8F6ED1C8FF92600371A5D /* ZGImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGImageView.m; sourceTree = "<group>"; };
+		EFA8F6EE1C8FF92600371A5D /* ZGZanButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGZanButton.h; sourceTree = "<group>"; };
+		EFA8F6EF1C8FF92600371A5D /* ZGZanButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGZanButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +109,7 @@
 		EF25EA001C813235006A9299 /* ZGZanAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				EFA8F6EA1C8FF92600371A5D /* ZGZanAnimation */,
 				EF25EA041C813235006A9299 /* AppDelegate.h */,
 				EF25EA051C813235006A9299 /* AppDelegate.m */,
 				EF25EA071C813235006A9299 /* ViewController.h */,
@@ -118,8 +119,6 @@
 				EF25EA0F1C813235006A9299 /* LaunchScreen.storyboard */,
 				EF25EA121C813235006A9299 /* Info.plist */,
 				EF25EA011C813235006A9299 /* Supporting Files */,
-				EF25EA341C813B7E006A9299 /* ZGImageView.h */,
-				EF25EA351C813B7E006A9299 /* ZGImageView.m */,
 			);
 			path = ZGZanAnimation;
 			sourceTree = "<group>";
@@ -129,8 +128,6 @@
 			children = (
 				EFA8F6E31C8FCBE900371A5D /* ZGZanAnimation.gif */,
 				EF25EA021C813235006A9299 /* main.m */,
-				EFA8F6E51C8FF37B00371A5D /* ZGZanButton.h */,
-				EFA8F6E61C8FF37B00371A5D /* ZGZanButton.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -151,6 +148,25 @@
 				EF25EA281C813235006A9299 /* Info.plist */,
 			);
 			path = ZGZanAnimationUITests;
+			sourceTree = "<group>";
+		};
+		EFA8F6EA1C8FF92600371A5D /* ZGZanAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				EFA8F6EB1C8FF92600371A5D /* View */,
+			);
+			path = ZGZanAnimation;
+			sourceTree = "<group>";
+		};
+		EFA8F6EB1C8FF92600371A5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EFA8F6EC1C8FF92600371A5D /* ZGImageView.h */,
+				EFA8F6ED1C8FF92600371A5D /* ZGImageView.m */,
+				EFA8F6EE1C8FF92600371A5D /* ZGZanButton.h */,
+				EFA8F6EF1C8FF92600371A5D /* ZGZanButton.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,10 +301,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF25EA091C813235006A9299 /* ViewController.m in Sources */,
-				EFA8F6E71C8FF37B00371A5D /* ZGZanButton.m in Sources */,
+				EFA8F6F11C8FF92600371A5D /* ZGZanButton.m in Sources */,
 				EF25EA061C813235006A9299 /* AppDelegate.m in Sources */,
 				EF25EA031C813235006A9299 /* main.m in Sources */,
-				EF25EA361C813B7E006A9299 /* ZGImageView.m in Sources */,
+				EFA8F6F01C8FF92600371A5D /* ZGImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
