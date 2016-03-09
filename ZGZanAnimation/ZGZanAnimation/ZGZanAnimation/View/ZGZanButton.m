@@ -16,6 +16,12 @@
 
 @property (assign, nonatomic) CGPoint startPointOfKeyAnimation;
 
+@property (strong, nonatomic) NSTimer *timer;
+
+@property (assign, nonatomic) NSInteger summaryCount;
+
+@property (assign, nonatomic) BOOL isOverTime;
+
 @end
 
 @implementation ZGZanButton
@@ -25,6 +31,8 @@
 {
     if (self = [super initWithFrame:frame]) {
        [self addTarget:self action:@selector(zanButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        self.summaryCount = 0;
+        self.isOverTime = NO;
     }
     
     return self;
@@ -39,6 +47,23 @@
 
 #pragma mark - zanButtonClick
 - (void)zanButtonClick:(UIButton *)btn
+{
+    // 判断是否超时（是否1秒内）
+    if ( self.isOverTime == NO ) {
+        self.summaryCount ++;
+    }else {
+        self.isOverTime = NO;
+    }
+    
+    // 重置计时器(让计时器累积时间清零)
+    [self resetTimer];
+    
+    // setup imgView
+    [self setupImageViewWithButton:btn];
+}
+
+
+- (void)setupImageViewWithButton:(UIButton *)btn
 {
     ZGImageView *imgView = [[ZGImageView alloc] init];
     imgView.frame = CGRectMake(-10, -64, 53, 33);
@@ -143,6 +168,40 @@
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:kAnimationGroupOverNotification object:anim];
+}
+
+
+#pragma mark - Tiemr
+- (void)resetTimer
+{
+    [self stopTimer];
+    [self startTimer];
+}
+
+- (void)startTimer
+{
+    self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(doTimer) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)stopTimer
+{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+- (void)doTimer
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(zanButton:overtimeWithSummaryCount:)]) {
+        
+        // 标志为超时
+        self.isOverTime = YES;
+        
+        // 停止计时器
+        [self stopTimer];
+        
+        [self.delegate zanButton:self overtimeWithSummaryCount:self.summaryCount];
+    }
 }
 
 @end

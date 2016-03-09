@@ -14,7 +14,7 @@
 #define ZGSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 
-@interface ViewController ()
+@interface ViewController () <ZGZanButtonDelegate>
 
 @property (assign, nonatomic) CGPoint startPointOfKeyAnimation;
 
@@ -31,9 +31,20 @@
     zanButton.frame = CGRectMake(ZGSCREEN_WIDTH - 53 - 40, ZGSCREEN_HEIGHT - 40 - 40, 53, 47);
     [zanButton setImage:[UIImage imageNamed:@"flower_icon"] forState:UIControlStateNormal];
     [zanButton setImage:[UIImage imageNamed:@"flower_icon"] forState:UIControlStateHighlighted];
+    zanButton.delegate = self;
     [self.view addSubview:zanButton];
     
 }
+
+
+#pragma mark - <ZGZanButtonDelegate>
+- (void)zanButton:(ZGZanButton *)zanButton overtimeWithSummaryCount:(NSInteger)summaryCount
+{
+    NSLog(@"summaryCount %zd",summaryCount);
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

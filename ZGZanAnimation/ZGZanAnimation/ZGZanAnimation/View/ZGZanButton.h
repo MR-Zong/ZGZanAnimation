@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class ZGZanButton;
+
+@protocol ZGZanButtonDelegate <NSObject>
+
+@optional
+- (void)zanButton:(ZGZanButton *)zanButton overtimeWithSummaryCount:(NSInteger)summaryCount;
+
+@end
+
 @interface ZGZanButton : UIButton
+
+@property (weak, nonatomic) id <ZGZanButtonDelegate> delegate;
 
 @end
