@@ -119,41 +119,33 @@
 {
     NSMutableArray *paths = [NSMutableArray array];
     
+    CGPoint turnPoint12 = CGPointMake(self.startPointOfKeyAnimation.x, ZGSCREEN_HEIGHT * 0.4);
+    CGPoint turnPoint34 = CGPointMake(self.startPointOfKeyAnimation.x, ZGSCREEN_HEIGHT * 0.3);
+    
+    // path1
     CGMutablePathRef path1=CGPathCreateMutable();
-    //动画起始点
     CGPathMoveToPoint(path1, nil, startPointOfKeyAnimation.x, startPointOfKeyAnimation.y);
-    
     //    CGPathAddLineToPoint(aPath, NULL, ZGSCREEN_WIDTH - 40 - 40, 0);
+    CGPathAddQuadCurveToPoint(path1, NULL, turnPoint12.x - (arc4random_uniform(15) + 35), turnPoint12.y * 1.5, turnPoint12.x ,turnPoint12.y);
+    CGPathAddQuadCurveToPoint(path1, NULL, turnPoint12.x + (arc4random_uniform(20) + 30), turnPoint12.y * 0.5, self.startPointOfKeyAnimation.x, 0);
     
-    CGPathAddQuadCurveToPoint(path1, NULL, self.startPointOfKeyAnimation.x - 35, self.startPointOfKeyAnimation.y - 50, self.startPointOfKeyAnimation.x , self.startPointOfKeyAnimation.y - 200);
-    
-    CGPathAddQuadCurveToPoint(path1, NULL, ZGSCREEN_WIDTH, self.startPointOfKeyAnimation.y - 200 - 80, self.startPointOfKeyAnimation.x, 0);
-    
+    // path2
     CGMutablePathRef path2=CGPathCreateMutable();
-    //动画起始点
     CGPathMoveToPoint(path2, nil, startPointOfKeyAnimation.x, startPointOfKeyAnimation.y);
+    CGPathAddQuadCurveToPoint(path2, NULL, turnPoint12.x + (arc4random_uniform(15) + 35), turnPoint12.y * 1.5, turnPoint12.x , turnPoint12.y);
+    CGPathAddQuadCurveToPoint(path2, NULL, turnPoint12.x - (arc4random_uniform(20) + 30), turnPoint12.y * 0.5, self.startPointOfKeyAnimation.x, 0);
     
-    CGPathAddQuadCurveToPoint(path2, NULL, ZGSCREEN_WIDTH, self.startPointOfKeyAnimation.y - 50, self.startPointOfKeyAnimation.x , self.startPointOfKeyAnimation.y - 200);
-    
-    CGPathAddQuadCurveToPoint(path2, NULL, self.startPointOfKeyAnimation.x - 35, self.startPointOfKeyAnimation.y - 200 - 80, self.startPointOfKeyAnimation.x, 0);
-    
-    
+    // path3
     CGMutablePathRef path3=CGPathCreateMutable();
-    //动画起始点
     CGPathMoveToPoint(path3, nil, startPointOfKeyAnimation.x, startPointOfKeyAnimation.y);
+    CGPathAddLineToPoint(path3, NULL, turnPoint34.x, turnPoint34.y);
+    CGPathAddQuadCurveToPoint(path3, NULL, turnPoint34.x + arc4random_uniform(30), turnPoint34.y * 0.5, self.startPointOfKeyAnimation.x, 0);
     
-    CGPathAddLineToPoint(path3, NULL, self.startPointOfKeyAnimation.x, self.startPointOfKeyAnimation.y - 350);
-    
-    CGPathAddQuadCurveToPoint(path3, NULL, ZGSCREEN_WIDTH, self.startPointOfKeyAnimation.y - 350 - 80, self.startPointOfKeyAnimation.x, 0);
-    
-    
+    // path4
     CGMutablePathRef path4=CGPathCreateMutable();
-    //动画起始点
     CGPathMoveToPoint(path4, nil, startPointOfKeyAnimation.x, startPointOfKeyAnimation.y);
-    
-    CGPathAddLineToPoint(path4, NULL, self.startPointOfKeyAnimation.x, self.startPointOfKeyAnimation.y - 350);
-    
-    CGPathAddQuadCurveToPoint(path4, NULL, self.startPointOfKeyAnimation.x - 35, self.startPointOfKeyAnimation.y - 250 - 80, self.startPointOfKeyAnimation.x, 0);
+    CGPathAddLineToPoint(path4, NULL, turnPoint34.x, turnPoint34.y);
+    CGPathAddQuadCurveToPoint(path4, NULL, self.startPointOfKeyAnimation.x - arc4random_uniform(30), turnPoint34.y * 0.5, self.startPointOfKeyAnimation.x, 0);
     
     
     [paths addObject:(__bridge id _Nonnull)(path1)];
